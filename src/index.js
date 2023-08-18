@@ -6,8 +6,10 @@ var token = require("./token");
 const router = express.Router();
 var httpProxy = require("http-proxy");
 var apiProxy = httpProxy.createProxyServer();
-
-// Using session middleware
+require("env_from_json").config(
+  { var: "value1" },
+  { debug: true, uppercase: true }
+);
 app.use(
   session({
     secret: "a secret string",
@@ -21,7 +23,6 @@ app.use("/protected", token.validateToken, (req, res) => {
   res.write("<p>Ola: " + req.user.username + "</p>");
   res.write("<p>Views: " + req.session.views + "</p>");
   res.write("<p>Expiration: " + req.session.cookie.maxAge / 1000 + "s</p>");
-  res.write("<p>username: " + req.cookie.username + "</p>");
   res.end();
 });
 
@@ -49,7 +50,7 @@ app.get("/init", function (req, res, next) {
   }
 });
 
-app.use("/init2/*", express.static("./view/build"));
+app.get("/build/*", express.static("./view/build"));
 
 app.all("/*", (req, res) => {
   apiProxy.web(req, res, { target: "http://localhost:3000/" });

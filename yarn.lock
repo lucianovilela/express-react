@@ -492,6 +492,11 @@ encodeurl@~1.0.2:
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
 
+env_from_json@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/env_from_json/-/env_from_json-0.0.1.tgz#503e2033aeb22faa66b5be9efe5e8658046bb7d1"
+  integrity sha512-Qz/+k1vDrpvVKNugPt53dqjDBOJME1VerJoS4urjdoABScn+S/4rYOEjTHz0Cbu6lYYST7pRCPf4lQaTgoM1Tg==
+
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"

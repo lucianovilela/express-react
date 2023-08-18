@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "Implements express-sessions, simple session middleware for Express.js.\n\nIn this demo each visitor gets a unique session, allowing you to store the user state.",
   "main": "src/index.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "concurrently --kill-others \"yarn start\" \"yarn view\"",
-    "view" :"cd view && yarn start",
+    "dev": "concurrently --kill-others  \"yarn view\" \"yarn start\"",
+    "view": "cd view && yarn start",
     "start": "nodemon src/index.js localhost 8080"
   },
   "dependencies": {
+    "env_from_json": "^0.0.1",
     "express": "4.17.1",
     "express-session": "1.17.0",
     "jsonwebtoken": "9.0.0"

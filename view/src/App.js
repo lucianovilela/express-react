@@ -9,7 +9,7 @@ function App() {
     setState(state + 1);
   };
   const login = () => {
-    fetch("/login")
+    fetch("/login?username=testando")
       .then((r) => r.json())
       .then((r) => {
         setUser(r);
@@ -20,7 +20,9 @@ function App() {
       <header className="App-header">
         <button onClick={ckickHandle}>Click {state}</button>
         <button onClick={login}>Login</button>
-        <div>{user && <p>{user.token}</p>}</div>
+        <div>
+          {user && <a href={`/protected/?token=${user.token}`}>Protected</a>}
+        </div>
       </header>
     </div>
   );
